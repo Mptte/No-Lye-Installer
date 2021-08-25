@@ -13,6 +13,7 @@ public class SplashScreen extends JFrame {
 
 
     Font font = null;
+    JLabel done;
     JLabel imgLabel;
     ImageIcon logo;
     JPanel ChildPanel1;
@@ -21,6 +22,8 @@ public class SplashScreen extends JFrame {
         new JFrame();
         logo = new ImageIcon("logo.png");
         imgLabel = new JLabel(new ImageIcon("logo_splash.gif"));
+        done  = new JLabel("");
+
 
 
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
@@ -33,7 +36,7 @@ public class SplashScreen extends JFrame {
         imgLabel.setSize(300,300);
         imgLabel.setBorder(border);
 
-        imgLabel.setText("No Lye Overlay");
+        imgLabel.setText("Installing No Lye Overlay");
         imgLabel.setForeground(new Color(255,255,255));
         imgLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 24));
         imgLabel.setIconTextGap(30);
@@ -43,7 +46,15 @@ public class SplashScreen extends JFrame {
         imgLabel.setVerticalAlignment(JLabel.CENTER);
         imgLabel.setHorizontalAlignment(JLabel.CENTER);
 
+        done.setHorizontalTextPosition(JLabel.CENTER);
+        done.setVerticalTextPosition(JLabel.BOTTOM);
+        done.setVerticalAlignment(JLabel.BOTTOM);
+        done.setHorizontalAlignment(JLabel.CENTER);
+
+
+        this.add(done);
         this.add(imgLabel);
+
 
 
         this.setUndecorated(true);
@@ -57,14 +68,7 @@ public class SplashScreen extends JFrame {
 
         this.add(imgLabel, BorderLayout.CENTER);
 
-        try {
-            Thread.sleep(2700);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        this.setVisible(false);
-        this.removeAll();
+        this.setVisible(true);
         this.revalidate();
         this.repaint();
 
