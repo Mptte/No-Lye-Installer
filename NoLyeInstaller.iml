@@ -11,21 +11,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library name="commons-io-2.11">
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/../commons-io-2.11.0" />
-        </CLASSES>
-        <JAVADOC>
-          <root url="file://$MODULE_DIR$/../commons-io-2.11.0/docs" />
-        </JAVADOC>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../commons-io-2.11.0" />
-        </SOURCES>
-        <jarDirectory url="file://$MODULE_DIR$/../commons-io-2.11.0" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/../commons-io-2.11.0" recursive="false" type="SOURCES" />
-      </library>
-    </orderEntry>
-    <orderEntry type="library" name="Maven: commons-io:commons-io:2.6" level="project" />
+    <orderEntry type="library" exported="" name="Maven: commons-io:commons-io:2.6" level="project" />
   </component>
 </module>
