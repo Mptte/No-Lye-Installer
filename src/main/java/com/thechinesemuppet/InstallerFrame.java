@@ -7,10 +7,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 
 import java.io.*;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.net.URLDecoder;
+import java.net.*;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
@@ -18,21 +15,40 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.rmi.RemoteException;
+import java.sql.Time;
+import java.util.concurrent.TimeoutException;
 
 public class InstallerFrame extends JFrame{
 ImageIcon icon = new ImageIcon("logo.png");
 JButton install;
+String release = "https://github.com/whatsaxis/No-Lye-Overlay/releases/latest/download/No.Lye.Overlay.1.1.0.exe";
 
-    InstallerFrame() throws IOException {
-        System.getProperty("java.io.tmpdir");
+    InstallerFrame(JFrame main) throws IOException{
+
+        File apipath = new File(FileUtils.getTempDirectoryPath() + "no_lye_installer_gh_api.json");
         FileUtils.copyURLToFile(
-                new URL("https://github.com/TheChineseMuppet/log-checker/releases/latest/download/index.exe"),new File(FileUtils.getUserDirectoryPath() + "/Desktop/" + "No Lye Overlay.exe"));
+                new URL("https://api.github.com/repos/whatsaxis/No-Lye-Overlay/releases/latest"),apipath);
+
         try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
+            File path = new File(FileUtils.getUserDirectoryPath() + "/Desktop/" + "No Lye Overlay.exe");
+            FileUtils.copyURLToFile(
+                    new URL("https://github.com/whatsaxis/No-Lye-Overlay/releases/latest/download/No.Lye.Overlay.1.1.0.exe"),path);
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+            }
+
+            Runtime.getRuntime().exec(FileUtils.getUserDirectoryPath() + "/Desktop/No Lye Overlay.exe", null, new File(FileUtils.getUserDirectoryPath() + "/Desktop/"));
+        }catch (Exception e){
+            if(e instanceof TimeoutException || e instanceof IOException || e instanceof MalformedURLException || e instanceof ProtocolException){
+                main.dispose();
+            }
+
+
         }
 
-        Runtime.getRuntime().exec(FileUtils.getUserDirectoryPath() + "/Desktop/No Lye Overlay.exe", null, new File(FileUtils.getUserDirectoryPath() + "/Desktop/"));
+
 
         try {
             Thread.sleep(2000);

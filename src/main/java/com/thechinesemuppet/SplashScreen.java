@@ -20,8 +20,8 @@ public class SplashScreen extends JFrame {
 
     SplashScreen(){
         new JFrame();
-        logo = new ImageIcon("src/main/resources/logo.png");
-        imgLabel = new JLabel(new ImageIcon("src/main/resources/logo_splash.gif"));
+        logo = new ImageIcon(getClass().getResource("/logo.png"));
+        imgLabel = new JLabel(new ImageIcon(getClass().getResource("/logo_splash.gif")));
         done  = new JLabel("");
 
 

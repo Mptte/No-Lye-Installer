@@ -3,19 +3,19 @@ package com.thechinesemuppet;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-
-
+import java.util.concurrent.TimeoutException;
 
 
 public class Main {
 
 
-    public static void main(String[] args) throws IOException, FontFormatException {
+    public static void main(String[] args) throws IOException, TimeoutException{
 
         SplashScreen splashScreen = new SplashScreen();
-        InstallerFrame installerFrame = new InstallerFrame();
+        InstallerFrame installerFrame = new InstallerFrame(splashScreen);
         splashScreen.imgLabel.setText("Installed No Lye Overlay");
-        splashScreen.done.setText("Press any key to escape");
+        splashScreen.done.setForeground(new Color(255, 255, 255));
+        splashScreen.add(splashScreen.done);
         splashScreen.revalidate();
         splashScreen.repaint();
         try {
